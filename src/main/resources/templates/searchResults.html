@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Search Results</title>
+</head>
+<body>
+<h1>Search Results</h1>
+
+<!-- Back to Product List -->
+<a th:href="@{/showProducts}">Back to Products</a>
+
+<br><br>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="product : ${providers}">
+    <td th:text="${product.id}"></td>
+    <td th:text="${product.name}"></td>
+    <td th:text="${product.price}"></td>
+  </tr>
+  </tbody>
+</table>
+
+<!-- If no products are found -->
+<p th:if="${#lists.isEmpty(providers)}">No products found.</p>
+</body>
+</html>
