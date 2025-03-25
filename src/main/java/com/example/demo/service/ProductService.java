@@ -21,4 +21,7 @@ public class ProductService {
     }
 
 
+    public void deleteProductById(int id) {
+        productRepository.deleteById(id);
+    }
 }
