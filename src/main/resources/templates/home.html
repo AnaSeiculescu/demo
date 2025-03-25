@@ -13,6 +13,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Price</th>
+            <th>Image --> </th>
         </tr>
         </thead>
         <tbody>
@@ -20,6 +21,14 @@
             <td th:text="${product.id}"></td>
             <td th:text="${product.name}"></td>
             <td th:text="${product.price}"></td>
+            <td>
+                <img src="https://via.placeholder.com/300"  th:src="@{${product.imageurl} ?: 'https://via.placeholder.com/300'}"
+                alt="Product Image"
+                width="200" height="200"
+                class="img-thumbnail">
+            </td>
+
+
         </tr>
         </tbody>
     </table>
