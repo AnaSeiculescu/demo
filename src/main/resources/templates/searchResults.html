@@ -17,6 +17,7 @@
     <th>ID</th>
     <th>Name</th>
     <th>Price</th>
+    <th>Image</th>
   </tr>
   </thead>
   <tbody>
@@ -24,6 +25,7 @@
     <td th:text="${product.id}"></td>
     <td th:text="${product.name}"></td>
     <td th:text="${product.price}"></td>
+    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Restaurant image" th:src="@{${provider.imageurl} ?: 'https://via.placeholder.com/300'}">
   </tr>
   </tbody>
 </table>
