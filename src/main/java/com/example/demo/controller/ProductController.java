@@ -17,7 +17,7 @@ import java.util.List;
 public class ProductController {
     private final ProductService productService;
 
-    @GetMapping("/showProducts")
+    @GetMapping("/")
     public String getProducts(Model model) {
         List<Product> productList = productService.getProducts();
         model.addAttribute("productList", productList);
@@ -40,7 +40,6 @@ public class ProductController {
 
     @PostMapping("/createProduct")
     public String createProductForm(@ModelAttribute Product product) {
-//        model.addAttribute("product", product);
         productService.createProduct(product);
         return "redirect:/showProducts";
     }
