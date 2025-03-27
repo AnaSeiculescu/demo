@@ -37,4 +37,17 @@ public class ProductController {
         productService.deleteProductById(id);
         return "home";
     }
+
+    @PostMapping("/createProduct")
+    public String createProductForm(@ModelAttribute Product product) {
+//        model.addAttribute("product", product);
+        productService.createProduct(product);
+        return "redirect:/showProducts";
+    }
+
+    @GetMapping("/productForm")
+    public String getProductForm(Model model) {
+        model.addAttribute("product", new Product());
+        return "createProduct";
+    }
 }

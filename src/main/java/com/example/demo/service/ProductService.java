@@ -4,6 +4,7 @@ import com.example.demo.model.Product;
 import com.example.demo.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class ProductService {
         return productRepository.findByNameContainingIgnoreCase(name);
     }
 
+    public void createProduct(Product product) {productRepository.save(product);}
 
     public void deleteProductById(int id) {
         productRepository.deleteById(id);
