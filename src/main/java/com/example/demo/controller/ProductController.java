@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Product;
+import com.example.demo.model.dto.CreateProductDto;
 import com.example.demo.service.ProductService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,9 +41,9 @@ public class ProductController {
     }
 
     @PostMapping("/createProduct")
-    public String createProductForm(@ModelAttribute Product product) {
-        productService.createProduct(product);
-        return "redirect:/showProducts";
+    public String createProductForm(@ModelAttribute @Valid CreateProductDto createProductDto) {
+        productService.createProduct(createProductDto);
+        return "redirect:/";
     }
 
     @GetMapping("/productForm")
